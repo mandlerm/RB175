@@ -1,1 +1,13 @@
-<h1><%= @user_profile %> </h1>
+<h1><%= @name %> </h1>
+<h3><a href="mailto:" + <%= @user_profile[:email] %> ><%= @user_profile[:email] %>
+</a> </h3>
+
+<h4> Interests: </h4>
+<ul>
+  <% @user_profile[:interests].each do |interest| %>
+    <li>
+      <%= interest %>
+    </li>
+  <% end %>
+</ul>
+
