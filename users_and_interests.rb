@@ -3,9 +3,12 @@ require "sinatra/reloader"
 require 'yaml'
 require 'pry'
 
+before do
+  @names = YAML.load_file("./users.yaml")
+end
 
 get "/" do
-  @names = YAML.load_file("./users.yaml").keys
+  @people = @names.keys
 
   erb :names
 
