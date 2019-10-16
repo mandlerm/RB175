@@ -8,17 +8,27 @@ before do
 end
 
 get "/" do
+  redirect "/users"
+end
+
+get "/users" do
   @people = @names.keys
-
   erb :names
-
 end
 
 get "/:user" do
   @name = params[:user]
-  @user_profile = @names[@name.to_sym] if @names.has_key?(@name.to_sym)
+  if @names.has_key?(@name.to_sym)
+    @user_profile = @names[@name.to_sym]
+  else
+    redirect '/'
+  end
 
   erb :user
+end
+
+not_found do
+  redirect '/'
 end
 
 helpers do
