@@ -16,7 +16,9 @@ end
 
 get "/:user" do
   @name = params[:user]
+  @user_profile = @names[@name.to_sym] if @names.has_key?(@name.to_sym)
 
+binding.pry
   erb :user
 
 end
