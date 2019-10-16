@@ -2,14 +2,9 @@
 <h3><a href="mailto:" + <%= @user_profile[:email] %> ><%= @user_profile[:email] %>
 </a> </h3>
 
-<h4> Interests: </h4>
-<ul>
-  <% @user_profile[:interests].each do |interest| %>
-    <li>
-      <%= interest %>
-    </li>
-  <% end %>
-</ul>
+<p><strong> Interests include: </strong><%= @user_profile[:interests].join(", ") %> </p>
+
+</br>
 
 <% @names.keys.each do |each_name| %>
 
