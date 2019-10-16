@@ -11,3 +11,9 @@
   <% end %>
 </ul>
 
+<% @names.keys.each do |each_name| %>
+
+  <% if each_name.to_s != @name %>
+  <pre><a href='/<%= each_name %>' > <%= each_name %> </a></pre>
+  <% end %>
+<% end %>
